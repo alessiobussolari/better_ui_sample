@@ -11,7 +11,7 @@ gem "bootsnap", require: false       # Accelera i tempi di avvio tramite caching
 gem "propshaft"                      # Pipeline di asset moderna per Rails
 gem "vite_rails"                     # Integrazione con Vite.js per frontend
 gem "tailwindcss-rails"              # Framework CSS utility-first
-gem "better_ui", path: "/Users/alessiobussolari/Lavoro/Github/Personal/better_ui" # DSL per interfacce utente con sintassi Ruby idiomatica
+gem "better_ui", path: "..//better_ui" # DSL per interfacce utente con sintassi Ruby idiomatica
 
 # --- API e formato dati ---
 gem "jbuilder"                       # Costruttore JSON per API

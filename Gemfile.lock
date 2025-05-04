@@ -1,5 +1,5 @@
 PATH
-  remote: /Users/alessiobussolari/Lavoro/Github/Personal/better_ui
+  remote: ../better_ui
   specs:
     better_ui (0.5.0)
       actioncable

@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ @import "tailwindcss";
+
+ @import "custom_better_ui_components.scss";
+
+ body {
+  @apply text-gray-700;
+ }
