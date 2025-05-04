@@ -1,3 +1,17 @@
+PATH
+  remote: /Users/alessiobussolari/Lavoro/Github/Personal/better_ui
+  specs:
+    better_ui (0.5.0)
+      actioncable
+      coderay (~> 1.1)
+      font-awesome-sass (~> 6.5.1)
+      listen
+      lookbook (~> 2.1)
+      rails (>= 7.0.0)
+      redcarpet (~> 3.6)
+      tailwindcss-rails (~> 4.0)
+      view_component (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,9 +110,12 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
+    css_parser (1.21.1)
+      addressable
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
@@ -110,11 +127,23 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    ffi (1.17.2-aarch64-linux-gnu)
+    ffi (1.17.2-aarch64-linux-musl)
+    ffi (1.17.2-arm-linux-gnu)
+    ffi (1.17.2-arm-linux-musl)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
+    ffi (1.17.2-x86_64-linux-musl)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    htmlbeautifier (1.4.3)
+    htmlentities (4.3.4)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     io-console (0.8.0)
@@ -139,10 +168,25 @@ GEM
       zeitwerk (>= 2.6.18, < 3.0)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
+    listen (3.9.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    lookbook (2.3.9)
+      activemodel
+      css_parser
+      htmlbeautifier (~> 1.3)
+      htmlentities (~> 4.3.4)
+      marcel (~> 1.0)
+      railties (>= 5.0)
+      redcarpet (~> 3.5)
+      rouge (>= 3.26, < 5.0)
+      view_component (>= 2.0)
+      yard (~> 0.9)
+      zeitwerk (~> 2.5)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -150,6 +194,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
@@ -249,12 +294,17 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.11.1)
+      ffi (~> 1.0)
     rdoc (6.13.1)
       psych (>= 4.0.0)
+    redcarpet (3.6.1)
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
     rexml (3.4.1)
+    rouge (4.5.2)
     rubocop (1.75.4)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -285,6 +335,8 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.32.0)
       base64 (~> 0.2)
@@ -319,7 +371,13 @@ GEM
     tailwindcss-rails (4.2.3)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
+    tailwindcss-ruby (4.1.5)
+    tailwindcss-ruby (4.1.5-aarch64-linux-gnu)
+    tailwindcss-ruby (4.1.5-aarch64-linux-musl)
     tailwindcss-ruby (4.1.5-arm64-darwin)
+    tailwindcss-ruby (4.1.5-x86_64-darwin)
+    tailwindcss-ruby (4.1.5-x86_64-linux-gnu)
+    tailwindcss-ruby (4.1.5-x86_64-linux-musl)
     thor (1.3.2)
     thruster (0.1.13)
     thruster (0.1.13-aarch64-linux)
@@ -334,6 +392,10 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
+    view_component (3.21.0)
+      activesupport (>= 5.2.0, < 8.1)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     vite_rails (3.0.19)
       railties (>= 5.1, < 9)
       vite_ruby (~> 3.0, >= 3.2.2)
@@ -355,6 +417,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.37)
     zeitwerk (2.7.2)
 
 PLATFORMS
@@ -370,6 +433,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  better_ui!
   bootsnap
   brakeman
   capybara

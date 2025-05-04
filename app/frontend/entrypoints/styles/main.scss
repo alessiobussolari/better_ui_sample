@@ -2,10 +2,69 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-// Importa componenti
-@import "components/buttons";
+/*
+ * pandev_better_ui_components.scss
+ * Foglio di stile SCSS per la personalizzazione dei componenti di BetterUi
+ * Generato il: 04/05/2025 13:39
+ */
 
-// Stili globali
-body {
-  @apply bg-gray-100;
+/**
+ * INDICE:
+ * 1. Variabili
+ * 2. Componenti generali
+ * 3. Componenti applicativi
+ * 4. Personalizzazioni
+ */
+
+/*==================================
+  IMPORTAZIONE COMPONENTI E VARIABILI
+====================================*/
+/* Importa le variabili */
+@import "components/variables";
+
+@layer components {
+  /*==================================
+    COMPONENTI GENERALI
+  ====================================*/
+  
+  /* Importa il componente Bottone */
+  @import "components/button";
+  
+  /* Importa il componente Heading */
+  @import "components/heading";
+  
+  /* Importa il componente Breadcrumb */
+  @import "components/breadcrumb";
+  
+  /* Importa il componente Link */
+  @import "components/link";
+  
+  /* Importa il componente Panel */
+  @import "components/panel";
+  
+  /* Importa il componente Icon */
+  @import "components/icon";
+  
+  /* Importa il componente Table */
+  @import "components/table";
+  
+  /* Importa il componente Spinner */
+  @import "components/spinner";
+  
+  /* Importa il componente Badge */
+  @import "components/badge";
+  
+  /* Importa il componente Avatar */
+  @import "components/avatar";
+  
+  /*==================================
+    COMPONENTI APPLICATIVI
+  ====================================*/
+  /* Importa il componente Card */
+  @import "components/card";
+  
+  /*==================================
+    PERSONALIZZAZIONI
+  ====================================*/
+  /* Qui è possibile aggiungere personalizzazioni specifiche */
 }
