@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Importa componenti
+@import "components/buttons";
+
+// Stili globali
+body {
+  @apply bg-gray-100;
+}

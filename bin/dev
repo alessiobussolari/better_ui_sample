@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# Script per avviare Rails e Vite in modalità di sviluppo
+
+# Percorso della root dell'applicazione
+APP_ROOT = File.expand_path("..", __dir__)
+PROCFILE_PATH = File.join(APP_ROOT, "tmp", "Procfile.dev")
+
+# Installa foreman se non è presente
+begin
+  require "foreman"
+rescue LoadError
+  puts "Installazione di foreman in corso..."
+  system("gem install foreman") && require("foreman")
+end
+
+# Assicurati che la directory tmp esista
+Dir.mkdir(File.join(APP_ROOT, "tmp")) unless Dir.exist?(File.join(APP_ROOT, "tmp"))
+
+# Crea un Procfile.dev
+File.write(PROCFILE_PATH, <<~PROCFILE)
+web: bundle exec rails server -p 3000
+vite: bundle exec vite dev
+PROCFILE
+
+# Avvia i processi
+Dir.chdir(APP_ROOT) do
+  exec "foreman", "start", "-f", PROCFILE_PATH
+end
