@@ -1,51 +1,51 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# --- Framework principale ---
-# Base Rails e componenti core
-gem "rails", "~> 8.0.2"
-gem "pg", "~> 1.1"                   # Database PostgreSQL
-gem "puma", ">= 5.0"                 # Server web
-gem "bootsnap", require: false       # Accelera i tempi di avvio tramite caching
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'rails', '~> 8.0.2'
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'propshaft'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '>= 2.1'
+# Use the Puma web server [https://github.com/puma/puma]
+gem 'puma', '>= 5.0'
+# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails'
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'turbo-rails'
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem 'stimulus-rails'
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem 'cssbundling-rails'
 
-# --- Asset pipeline e frontend ---
-gem "propshaft"                      # Pipeline di asset moderna per Rails
-gem "vite_rails"                     # Integrazione con Vite.js per frontend
-gem "tailwindcss-rails"              # Framework CSS utility-first
-gem "better_ui", path: "..//better_ui" # DSL per interfacce utente con sintassi Ruby idiomatica
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
 
-# --- API e formato dati ---
-gem "jbuilder"                       # Costruttore JSON per API
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# --- Background processing e cache ---
-gem "solid_cache"                    # Cache su database
-gem "solid_queue"                    # Code di lavoro su database
-gem "solid_cable"                    # Action Cable adattatore su database
+# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+gem 'solid_cable'
+gem 'solid_cache'
+gem 'solid_queue'
 
-# --- Deployment e performance ---
-gem "kamal", require: false          # Deployment con container Docker
-gem "thruster", require: false       # HTTP caching/compressione e X-Sendfile per Puma
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
 
-# --- Funzionalità opzionali (commentate) ---
-# gem "bcrypt", "~> 3.1.7"           # Gestione password sicura
-# gem "image_processing", "~> 1.2"   # Trasformazione immagini per Active Storage
+gem 'better_ui', path: '../better_ui'
+gem 'lookbook', '~> 2.3'
 
-# --- Compatibilità piattaforma ---
-gem "tzinfo-data", platforms: %i[ windows jruby ]  # File zoneinfo per Windows/JRuby
-
-# --- Ambiente di sviluppo e test ---
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"  # Tool di debug
-  gem "brakeman", require: false                                       # Analisi statica per vulnerabilità
-  gem "rubocop-rails-omakase", require: false                          # Stile Ruby standard Rails
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
+
+  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  gem 'brakeman', require: false
+
+  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  gem 'rubocop-rails-omakase', require: false
 end
 
-# --- Solo sviluppo ---
 group :development do
-  gem "web-console"                  # Console su pagine di eccezioni
-end
-
-# --- Solo test ---
-group :test do
-  gem "capybara"                     # Test di sistema
-  gem "selenium-webdriver"           # Driver browser per test di sistema
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'web-console'
 end

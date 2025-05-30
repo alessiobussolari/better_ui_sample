@@ -1,5 +1,7 @@
-import "@styles/application.css";
+// Entry point for the build script in your package.json
+import "@hotwired/turbo-rails";
+import "./controllers";
 
-console.log("Ciao");
+import { registerBetterUiComponents } from "@pandev-srl/better_ui";
 
-import "./alert";
+registerBetterUiComponents(window.Stimulus);
