@@ -1,7 +1,7 @@
 PATH
   remote: ../better_ui
   specs:
-    better_ui (0.1.0)
+    better_ui (0.2.0)
       coderay (~> 1.1)
       font-awesome-sass (~> 6.5)
       lookbook (~> 2.3)
