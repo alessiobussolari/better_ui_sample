@@ -87,7 +87,7 @@ Una volta avviato, visita:
     <%= bui_input_text(name: 'email', type: :email, form: form) %>
   <% end %>
   
-  <%= bui_button('Salva', type: :submit, theme: :green, size: :large) %>
+  <%= bui_button('Salva', type: :submit, theme: :green, size: :lg) %>
 <% end %>
 
 <!-- Layout applicativo -->
@@ -298,3 +298,39 @@ Questo progetto demo è disponibile come open source sotto i termini della [MIT 
 **Better UI Sample** - Dove i componenti prendono vita ✨
 
 *Parte dell'ecosystem [Better UI](../README.md)*
+
+
+PROMPT:
+
+Facciamo refactor di: Progress.
+
+riscrivi la parte delle validazioni e dei getter per usare il nuovo formato:
+
+[
+          { constant: :PANEL_THEME_CLASSES, var: :@theme, default: :white, method: :get_theme_class }
+        ].each do |config|
+          define_method config[:method] do
+            constant_hash = self.class.const_get(config[:constant])
+            value = instance_variable_get(config[:var])
+            constant_hash[value] || constant_hash[config[:default]]
+          end
+        end
+
+        def validate_params
+          validate_theme
+        end
+
+        [
+          { values: PANEL_THEME_CLASSES.keys, method: :validate_theme, param: 'theme', var: :@theme }
+        ].each do |validation|
+          define_method validation[:method] do
+            value = instance_variable_get(validation[:var])
+            unless validation[:values].include?(value)
+              raise ArgumentError, "#{self.class.name} - parametro '#{validation[:param]}' con valore '#{value}' non è valido. Deve essere uno tra: #{validation[:values].join(', ')}"
+            end
+          end
+        end
+
+In più controlla helper e preview per essere sicuti che vengano utilizzati i nuovi nomi standard per size e simili come MEDIUM -> nuovo MD
+
+Una volta fatto questo aggiungi un metodo printfull e costruisci il componente direttamente con le classi ruby/rails dentro al metodo e fai il render del metodo dentro al file html
